@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Ranker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>To-Do List Ranker</h1>
+    </header>
+    
+    <div class="file-input-wrapper">
+        <label for="file-input" class="file-input-label">Upload Tasks File</label>
+        <input type="file" id="file-input" accept=".txt" class="file-input">
+    </div>
+
+    <!-- Input field to add new tasks -->
+    <div class="input-section">
+      <input type="text" id="new-task" placeholder="Enter a new task" class="input-field">
+      <button onclick="addTask()" class="add-button">Add Task</button>
+    </div>
+    
+    <!-- Section to display added tasks that are not yet ranked -->
+    <div class="tasks-section">
+      <h2>Added Tasks (Not Yet Ranked)</h2>
+      <ul id="added-tasks" class="task-list"></ul>
+    </div>
+    
+    <!-- Section for comparison view -->
+    <div id="comparison-view" class="comparison-section" style="display: none;">
+      <h2>Which task is more important?</h2>
+      <button id="option1" class="task-button" onclick="chooseTask(1)">Task 1</button>
+      <button id="option2" class="task-button" onclick="chooseTask(2)">Task 2</button>
+    </div>
+    
+    <!-- Button to start the ranking process -->
+    <button onclick="startRanking()" class="start-button">Start Ranking</button>
+    
+    <!-- Section to display the final ranked list -->
+    <div class="ranked-section">
+      <h2>Ranked List</h2>
+      <ul id="ranked-list" class="ranked-list"></ul>
+      <!-- Add this button just after the <ul id="ranked-list" class="ranked-list"></ul> -->
+<button id="download-csv" class="download-button" onclick="downloadCSV()" style="display: none;">Download CSV</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
